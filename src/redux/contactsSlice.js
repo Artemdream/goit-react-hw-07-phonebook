@@ -1,37 +1,37 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
 
-const handlePending = state => (state.isLoading = true);
+// const handlePending = state => (state.isLoading = true);
 
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+// const handleRejected = (state, action) => {
+//   state.isLoading = false;
+//   state.error = action.payload;
+// };
 
-const fetchContactsFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.error = null;
-  state.items = action.payload;
-};
+// const fetchContactsFulfilled = (state, action) => {
+//   state.isLoading = false;
+//   state.error = null;
+//   state.items = action.payload;
+// };
 
-const addContactsFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.error = null;
-  state.items.push(action.payload);
-};
+// const addContactsFulfilled = (state, action) => {
+//   state.isLoading = false;
+//   state.error = null;
+//   state.items.push(action.payload);
+// };
 
-const deleteContactsFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.error = null;
-  const indexContact = state.items.findIndex(
-    item => item.id === action.payload.id
-  );
-  state.items.splice(indexContact, 1);
-};
+// const deleteContactsFulfilled = (state, action) => {
+//   state.isLoading = false;
+//   state.error = null;
+//   const indexContact = state.items.findIndex(
+//     item => item.id === action.payload.id
+//   );
+//   state.items.splice(indexContact, 1);
+// };
 
 //* додаткове скорочення(чомусь не працює)
-const contactsFnArr = [fetchContacts, addContact, deleteContact];
-const contactsTypeFn = type => contactsFnArr.map(el => el[type]);
+// const contactsFnArr = [fetchContacts, addContact, deleteContact];
+// const contactsTypeFn = type => contactsFnArr.map(el => el[type]);
 
 const contactsSlice = createSlice({
   name: 'contacts',
